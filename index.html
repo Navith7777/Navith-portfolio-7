@@ -1360,12 +1360,17 @@ span#likeCount {
 <script>
   const likeButton = document.getElementById('likeButton');
   const likeCount = document.getElementById('likeCount');
-  let count = 0;
+  let count = localStorage.getItem('likeCount') || 0; // Retrieve count from localStorage or default to 0
+  
+  likeCount.innerText = count; // Update the initial count
   
   likeButton.addEventListener('click', () => {
     count++;
     likeCount.innerText = count;
-  });</script>
+    localStorage.setItem('likeCount', count); // Store updated count in localStorage
+  });
+</script>
+
 </body>
 
 </html>
