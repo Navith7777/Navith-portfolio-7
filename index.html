@@ -23,6 +23,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    button#likeButton {
+    color: white;
+    text-align: center;
+    color: var(--light-gray-70);
+    font-size: 18px;
+  }
+button#likeButton {
+    font-size: 18px;
+    color: red;
+    text-align: center;
+    animation: shake 0.5s infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(5px); }
+}
+span#likeCount {
+  color: white;
+}
+
+  </style>
 </head>
 
 <body>
@@ -143,6 +166,14 @@
             <a href="https://instagram.com/mario____7_?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
+          </li>
+          <li>
+            <button id="likeButton">❤️</button>
+            </li>
+            <li>
+
+            <span id="likeCount">0</span>
+    
           </li>
 
         </ul>
@@ -1277,7 +1308,7 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="https://formspree.io/f/mzbnvrvq" method="POST" class="form" data-form>
+          <form action="feedback.py" method="POST" class="form" data-form>
 
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
@@ -1326,7 +1357,15 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+<script>
+  const likeButton = document.getElementById('likeButton');
+  const likeCount = document.getElementById('likeCount');
+  let count = 0;
+  
+  likeButton.addEventListener('click', () => {
+    count++;
+    likeCount.innerText = count;
+  });</script>
 </body>
 
 </html>
